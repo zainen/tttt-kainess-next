@@ -1,113 +1,114 @@
+import { Bookings } from '@/components/Bookings';
+import { Card } from '@/components/ui/Card';
+import { ModalPopup } from '@/components/ui/Modal';
+import { Section } from '@/components/ui/Section';
+import { SearchParams } from '@/types';
 import Image from 'next/image'
+import Link from 'next/link';
 
-export default function Home() {
+export default function Home({searchParams}: { searchParams: SearchParams}) {
+  const showModal = searchParams?.modal
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      {showModal ? <ModalPopup /> : undefined}
+      <Section className="w-full h-fit flex justify-center">
+      <div
+        className="relative w-full pt-10 bg-no-repeat min-h-fit h-fit text-center bg-[url('/img/waves.webp')] bg-center"
+      >
+        <div className=" w-full p-10 text-tttt-200 drop-shadow-header blur-0">
+          <h1 className="text-center text-3xl font-bold ">The Journey Towards Health Stems from Within.</h1>
+
+          <div className="flex flex-col md:flex-row w-full pt-4 md:pt-16 ">
+            <div className="flex-1 text-center p-4 m-2 flex flex-col justify-between">
+              <p className="italic drop-shadow-sub-header font-semibold">“The natural healing force within each of us is the greatest force in getting well.”</p>
+              <p className="md:pt-4 text-lg text-right font-semibold">- Hippocrates</p>
+            </div>
+            <div className="flex-1 text-center p-4 m-2 flex flex-col justify-between">
+              <p className="italic drop-shadow-sub-header font-semibold">“You must find the place inside of yourself where nothing is impossible”</p>
+              <p className="md:pt-4 text-lg text-right font-semibold">- Dr Deepak Chopra, MD</p>
+            </div>
+            <div className="flex-1 text-center p-4 m-2 flex flex-col justify-between">
+              <p className="italic drop-shadow-sub-header font-semibold">“Health is the greatest possession. Contentment is the greatest treasure. Confidence is the greatest friend.”</p>
+              <p className="md:pt-4 text-lg text-right font-semibold">- Lao Tzu</p>
+            </div>
+          </div>
+
         </div>
       </div>
+      </Section>
+      <Section className="lg:max-w-4/5 w-full bg-tttt-100 flex justify-center">
+        <div className="p-4 flex flex-col md:flex-row justify-center items-center">
+          <Image className=" object-scale-down object w-3/4 md:w-1/2" src={`/img/healthy-lifestyle.jpeg`} width={200} height={200} alt="healthy-lifestyle" />
+          <div className="w-full text-2xl px-6 py-4 flex flex-col items-center ">
+            <h2 className="font-extrabold text-3xl text-primary-300 text-center drop-shadow-sub-header">A Healthy Life That Works For Your Lifestyle</h2>
+            <div className="pt-4 flex flex-col items-center ">
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+              <p className="py-2 text-primary-300 text-center font-semibold">Online Health Coaching with Tysia Suzuki</p>
+              <Link className='bg-primary-300 rounded-lg mt-4' href={'/?modal=true'}>
+                <p  className='text-tttt-200 px-4 max-w-fit drop-shadow-sub-header'>Discover</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Section>
+      <Section className="lg:max-w-4/5 w-full bg-primary-300 flex justify-center">
+        <div className="p-4 flex flex-col md:flex-row justify-center items-center">
+          <div className="w-full text-2xl px-6 py-4 flex flex-col items-center">
+            <h2 className="font-extrabold text-3xl text-tttt-200 text-center drop-shadow-header">Meet Tysia</h2>
+            <h2 className="font-semibold text-xl pt-4 text-tttt-300 text-center drop-shadow-sub-header">Health and Wellness Coach | Nutrition Expert</h2>
+            <div className="pt-4 flex flex-col items-center ">
+              <Link className='bg-accent-100 rounded-lg mt-4' href="/about">
+                <p  className='text-primary-300 px-4 max-w-fit drop-shadow-sub-header'>Read More</p>
+              </Link>
+            </div>
+          </div>
+          <Image className=" object-scale-down object w-3/4 md:w-1/2 " width={200} height={200} src={`/img/tttt-sitting.JPG`} alt="second" />
+        </div>
+      </Section>
+      <Section className="lg:max-w-4/5 w-full bg-tttt-200 flex flex-col md:flex-row">
+        <div className="w-full  flex flex-col justify-center items-center">
+          <h2 className="font-bold text-3xl py-4 md:py-10 text-primary-300 text-center">What I Specialize In</h2>
+          <div className="w-full grid md:grid-cols-5">
+            <Card className="px-2 py-4  flex flex-col justify-center items-center bg-primary-200 m-4">
+              <Image className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/digestion.svg' alt='digestion'/>
+              <p className="py-2 md:py-4 text-center text-tttt-200 ">Reset Your Digestion System</p>
+            </Card>
+            <Card className="px-2 py-4 flex flex-col justify-center items-center bg-primary-200 m-4">
+              <Image className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/eating-habits.svg' alt='eating-habits'/>
+              <p className="py-2 md:py-4 text-center text-tttt-200 bg-opacity-100">Establish Eating Habits</p>
+            </Card>
+            <Card className="px-2 py-4 flex flex-col justify-center items-center bg-primary-200 m-4">
+              <Image className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/healthy-lifestyle.svg' alt='healthy-lifestyle'/>
+              <p className="py-2 md:py-4 text-center text-tttt-200 ">Adopt a Healthy Lifestyle</p>
+            </Card>
+            <Card className="px-2 py-4 flex flex-col justify-center items-center bg-primary-200 m-4">
+              <Image className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/health-goals.svg' alt='health-goals'/>
+              <p className="py-2 md:py-4 text-center text-tttt-200 ">Set Health Goals</p>
+            </Card>
+            <Card className="px-2 py-4 flex flex-col justify-center items-center bg-primary-200 m-4">
+              <Image className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/wellness-plan.svg' alt='wellness-plan'/>
+              <p className="py-2 md:py-4 text-center text-tttt-200 ">Personalized Wellness Plan</p>
+            </Card>
+          </div>
+          <div className=" w-full flex items-center justify-center">
+            <Link href="/kai">
+              <p className="my-4 text-primary-300 px-4 w-fit">Learn More</p>
+            </Link>
+          </div>
+        </div>
+      </Section>
+      <Section className="lg:max-w-4/5 w-full bg-primary-300">
+        <h2 className="text-center text-3xl p-6 md:p-10 text-primary-300 font-bold">Let’s Get Healthy</h2>
+        <div className="w-full">
+          <Bookings />
+        </div>
+      </Section>
+      <Section className="lg:max-w-4/5 w-full bg-tttt-200 flex flex-col justify-center items-center pb-8">
+        <h2 className="text-center text-3xl p-6 md:p-10 text-primary-300 font-bold">The Kai Care & Wellness Feed</h2>
+        <div className="max-w-lg">
+          <Image src="/img/coming-soon-kai.jpg" width={600} height={600} alt="coming soon to kai health & wellness" />
+        </div>
+      </Section>
+    </>
   )
 }
