@@ -4,7 +4,7 @@ import { ColourTypes } from "@/types";
 
 export const Button = (
   props: PropsWithChildren<{
-    action: () => void;
+    action?: () => void;
     image?: string;
     className?: string;
     colour?: ColourTypes;
@@ -17,7 +17,7 @@ export const Button = (
         props.className
       }`}
     >
-      <button className="w-full h-full py-1 font-bold" type={props.type} onClick={props.action}>
+      <button className="w-full h-full py-1 font-bold" type={props.type} onClick={props.action ?? (() => {})}>
         {props.children}
       </button>
     </div>

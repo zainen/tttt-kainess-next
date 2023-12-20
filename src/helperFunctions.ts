@@ -1,4 +1,4 @@
-import { ColourTypes } from "@/types";
+import { ColourTypes, EmailParams } from "@/types";
 
 export const buttonColour = (colourOptions?: ColourTypes) => {
   switch (colourOptions) {
@@ -16,3 +16,12 @@ export const buttonColour = (colourOptions?: ColourTypes) => {
   }
 }
 
+export const validateEmailParams = (params: EmailParams): Partial<(keyof Omit<EmailParams, 'phoneNumber'>)>[] => {
+  const missingParams: Partial<(keyof Omit<EmailParams, 'phoneNumber'>)>[] = []
+  for (const [key, val] of Object.entries(params)) {
+    if (key !== 'phoneNumber' && val === '') {
+      missingParams.push(key as Partial<(keyof Omit<EmailParams, 'phoneNumber'>)>)
+    }
+  }
+  return missingParams
+}

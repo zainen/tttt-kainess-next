@@ -3,14 +3,14 @@ import { EmailContainer } from "@/components/ui/EmailContainer";
 export const Footer = () => {
   return (
     <div className="w-full px-4 md:px-0 py-10 bg-primary-400 text-tttt-200 h-fit">
-      <div className="px-10 md:w-full flex flex-col md:flex-row items-center md:items-start justify-around h-fit">
+      <div className="px-10 md:w-full flex flex-col-reverse md:flex-row items-center md:items-start justify-around h-fit">
         <EmailContainer
           inputClassname="bg-primary-400"
           borderColour="border-b-tttt-200"
         />
-        <div className="flex justify-center pt-8 md:pt-0">
+        <div className="flex justify-center py-8 md:pt-0">
           {/* facebook */}
-          <a href="/" target="_blank">
+          <a href="/" target="_blank" className="md:px-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -23,7 +23,7 @@ export const Footer = () => {
             </svg>
           </a>
           {/* instagram */}
-          <a href="/" target="_blank">
+          <a href="/" target="_blank" className="md:px-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ export const Footer = () => {
             </svg>
           </a>
           {/* linkedin */}
-          <a href="/" target="_blank">
+          <a href="/" target="_blank" className="md:px-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -49,7 +49,7 @@ export const Footer = () => {
             </svg>
           </a>
           {/* pinterest */}
-          <a href="/" target="_blank">
+          <a href="/" target="_blank" className="md:px-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
