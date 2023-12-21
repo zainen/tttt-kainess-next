@@ -36,7 +36,7 @@ export interface HerbFull {
   herb_id?: string,
 };
 
-export interface erbCollectionJist {
+export interface HerbJist {
   id: number,
   tcm_name?: string,
   tcm_name_en?: string,
@@ -51,4 +51,9 @@ export interface erbCollectionJist {
 export interface SearchHerbName {
   language: string,
   herb_name: string,
+}
+
+export type GetHerbJist = {
+  herbs: HerbJist[];
+  pages: number[];
 }
