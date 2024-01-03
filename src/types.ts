@@ -57,3 +57,9 @@ export type GetHerbJist = {
   herbs: HerbJist[];
   pages: number[];
 }
+
+
+export type JSONResponse<T> = {
+  data?: T
+  errors?: Array<{message: string}>
+}
