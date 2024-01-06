@@ -25,3 +25,19 @@ export const validateEmailParams = (params: EmailParams): Partial<(keyof Omit<Em
   }
   return missingParams
 }
+
+export const formatEnglishHerbName = (herbNameEnglish: string) => {
+  const arr = []
+  if (herbNameEnglish.includes(":")) {
+    const [first, second] = herbNameEnglish.split(": ");
+    const cleanSecond = formatSymbol(second, ",")
+    arr.push(`${first}: `, ...cleanSecond);
+  } else {
+    arr.push(herbNameEnglish);
+  }
+  return arr;
+}
+
+export const formatSymbol = (str: string, symbol: string): string[] => {
+  return str.includes(symbol) ? str.split(`${symbol} `) : [str]
+}
