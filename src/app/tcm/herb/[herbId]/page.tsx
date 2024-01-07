@@ -24,8 +24,6 @@ export default async function Page (props: Props) {
   try {
     const herb_arr = await getHerbData(props.params.herbId);
     const herb = herb_arr[0];
-    const herbNameEnglishArr = formatEnglishHerbName(herb.tcm_name_en ?? "");
-
     return (
       <div className="bg-tttt-200 text-primary-300 w-full flex justify-center py-10">
         <div className="w-full md:w-4/5">
@@ -40,13 +38,14 @@ export default async function Page (props: Props) {
                 <p>{herb.herb_pinyin_name ?? "unknown"}</p>
               </div>
               <div className="flex-1 flex flex-col items-center">
-                    <p className="font-bold text-primary-400 py-4 w-fit">English:</p>
+                <p className="font-bold text-primary-400 py-4 w-fit">English:</p>
+                <div className="">
                   {herb.tcm_name_en ? formatEnglishHerbName(herb.tcm_name_en ?? "").map((str, i) => {
-                    return <p className="w-fit" key={`herb_en_part_${i}`}>{str}</p>
-
-                  }) :
-                  <p>Unlisted</p>
+                      return <p className="w-fit" key={`herb_en_part_${i}`}>{str}</p>
+                    }) :
+                    <p>Unlisted</p>
                   }
+                </div>
               </div>
               <div className="flex-1 flex flex-col items-center">
                   <p className="text-primary-400 font-bold py-4 w-fit">Latin:</p>

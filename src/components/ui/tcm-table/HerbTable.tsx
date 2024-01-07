@@ -27,7 +27,7 @@ export const HerbTable = (props:Props) => {
           {props.herbs && props.herbs.length ? 
           <>
             {props.herbs.map((herb, i) => {
-              return (<HerbRow key={`herb_key_${i}`}  herb={herb} />)
+              return <HerbRow key={`herb_key_${i}`}  herb={herb} />
             })}
           </>
             : 
