@@ -6,7 +6,7 @@ const about = () => {
   return (
     <>
       <Card className='text-primary-400 w-full flex flex-col justify-center md:justify-around md:flex-row items-center text-lg bg-tttt-100' >
-        <Image className="object-contain object-center md:w-1/2 w-3/4 max-w-lg" width={750} height={750}  src="/img/tttt-side.JPG" alt="Tysia Side Profile" />
+        <Image priority className="object-contain object-center md:w-1/2 w-3/4 max-w-lg" width={750} height={750}  src="/img/tttt-side.JPG" alt="Tysia Side Profile"/>
         <div>
           <h2 className='text-3xl font-bold pb-6 text-center'>Meet Tysia</h2>
           <h4 className='text-xl pb-6 text-center px-2'>Health and Wellness Coach | Holistic Nutritionist</h4>

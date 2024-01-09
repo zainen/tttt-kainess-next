@@ -41,7 +41,7 @@ export const Header = ({searchParams}: {searchParams: SearchParams}) => {
               <Link href='/recipies'>Recipies</Link>
             </li> */}
             <li className="px-2 drop-shadow-sub-header">
-              <Link href='/tcm'>tcm</Link>
+              <Link href='/tcm/1'>tcm</Link>
             </li>
           </ul>
         </nav>

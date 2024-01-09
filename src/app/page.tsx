@@ -38,7 +38,7 @@ export default function Home({searchParams}: { searchParams: SearchParams}) {
       </Section>
       <Section className="lg:max-w-4/5 w-full bg-tttt-100 flex justify-center">
         <div className="p-4 flex flex-col md:flex-row justify-center items-center">
-          <Image className=" object-scale-down object w-3/4 md:w-1/2" src={`/img/healthy-lifestyle.jpeg`} width={200} height={200} alt="healthy-lifestyle" />
+          <Image priority className=" object-scale-down object w-3/4 md:w-1/2" src={`/img/healthy-lifestyle.jpeg`} width={200} height={200} alt="healthy-lifestyle" />
           <div className="w-full text-2xl px-6 py-4 flex flex-col items-center ">
             <h2 className="font-extrabold text-3xl text-primary-300 text-center drop-shadow-sub-header">A Healthy Life That Works For Your Lifestyle</h2>
             <div className="pt-4 flex flex-col items-center ">
@@ -62,7 +62,7 @@ export default function Home({searchParams}: { searchParams: SearchParams}) {
               </Link>
             </div>
           </div>
-          <Image className=" object-scale-down object w-3/4 md:w-1/2 " width={200} height={200} src={`/img/tttt-sitting.JPG`} alt="second" />
+          <Image priority className=" object-scale-down object w-3/4 md:w-1/2 " width={200} height={200} src={`/img/tttt-sitting.JPG`} alt="second" />
         </div>
       </Section>
       <Section className="lg:max-w-4/5 w-full bg-tttt-200 flex flex-col md:flex-row">
@@ -70,23 +70,23 @@ export default function Home({searchParams}: { searchParams: SearchParams}) {
           <h2 className="font-bold text-3xl py-4 md:py-10 text-primary-300 text-center">What I Specialize In</h2>
           <div className="w-full grid md:grid-cols-5">
             <Card className="px-2 py-4  flex flex-col justify-center items-center bg-primary-200 m-4">
-              <Image className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/digestion.svg' alt='digestion'/>
+              <Image priority className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/digestion.svg' alt='digestion'/>
               <p className="py-2 md:py-4 text-center text-tttt-200 ">Reset Your Digestion System</p>
             </Card>
             <Card className="px-2 py-4 flex flex-col justify-center items-center bg-primary-200 m-4">
-              <Image className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/eating-habits.svg' alt='eating-habits'/>
+              <Image priority className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/eating-habits.svg' alt='eating-habits'/>
               <p className="py-2 md:py-4 text-center text-tttt-200 bg-opacity-100">Establish Eating Habits</p>
             </Card>
             <Card className="px-2 py-4 flex flex-col justify-center items-center bg-primary-200 m-4">
-              <Image className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/healthy-lifestyle.svg' alt='healthy-lifestyle'/>
+              <Image priority className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/healthy-lifestyle.svg' alt='healthy-lifestyle'/>
               <p className="py-2 md:py-4 text-center text-tttt-200 ">Adopt a Healthy Lifestyle</p>
             </Card>
             <Card className="px-2 py-4 flex flex-col justify-center items-center bg-primary-200 m-4">
-              <Image className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/health-goals.svg' alt='health-goals'/>
+              <Image priority className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/health-goals.svg' alt='health-goals'/>
               <p className="py-2 md:py-4 text-center text-tttt-200 ">Set Health Goals</p>
             </Card>
             <Card className="px-2 py-4 flex flex-col justify-center items-center bg-primary-200 m-4">
-              <Image className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/wellness-plan.svg' alt='wellness-plan'/>
+              <Image priority className="py-2 md:py-4 object-scale-down" width={200} height={200} src='/img/wellness-plan.svg' alt='wellness-plan'/>
               <p className="py-2 md:py-4 text-center text-tttt-200 ">Personalized Wellness Plan</p>
             </Card>
           </div>
@@ -106,7 +106,7 @@ export default function Home({searchParams}: { searchParams: SearchParams}) {
       <Section className="lg:max-w-4/5 w-full bg-tttt-200 flex flex-col justify-center items-center pb-8">
         <h2 className="text-center text-3xl p-6 md:p-10 text-primary-300 font-bold">The Kai Care & Wellness Feed</h2>
         <div className="max-w-lg">
-          <Image src="/img/coming-soon-kai.jpg" width={600} height={600} alt="coming soon to kai health & wellness" />
+          <Image priority src="/img/coming-soon-kai.jpg" width={600} height={600} alt="coming soon to kai health & wellness" />
         </div>
       </Section>
     </>

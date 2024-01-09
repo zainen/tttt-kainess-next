@@ -15,7 +15,7 @@ const kai = () => {
           </div>
         </div>
         <div className="text-primary-400 border-none w-full flex flex-col justify-center items-center md:items-start md:flex-row-reverse text-lg ">
-        <Image className=" object w-3/4 md:w-1/2" height={300} width={300} src={`/img/light-through-trees.jpeg`} alt="second" />
+        <Image priority className=" object w-3/4 md:w-1/2" height={300} width={300} src={`/img/light-through-trees.jpeg`} alt="second"/>
 
           <div className="w-3/4 md:w-1/2 py-4 md:px-4 flex flex-col">
             <div className="pb-4 md:pb-10">
@@ -41,7 +41,7 @@ const kai = () => {
           </div>
         </div>
         <div className="text-primary-400 border-none w-full flex flex-col justify-center items-center md:items-start md:flex-row text-lg">
-          <Image className=" object-scale-down object w-3/4 md:w-1/2" height={500} width={500} src={`/img/tttt-smile.JPG`} alt="second" />
+          <Image priority className=" object-scale-down object w-3/4 md:w-1/2" height={500} width={500} src={`/img/tttt-smile.JPG`} alt="second"/>
 
           <div className="w-3/4 md:w-1/2 py-4 md:px-4 flex flex-col">
             <div className="pb-4 md:pb-10">

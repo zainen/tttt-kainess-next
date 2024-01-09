@@ -1,2 +1,6 @@
-const dummy = () => {}
-export default dummy
+import { redirect } from "next/navigation";
+
+export default function Page () {
+
+  redirect("/tcm/1");
+}
