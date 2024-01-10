@@ -12,7 +12,7 @@ const useTcmHerbJist = (page: number = 0) => {
     setIsLoading(true);
     try {
 
-      const response = await fetch(`http://localhost:8080/tcm/0`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_KAINESS_API}/tcm/0`, {
           headers: {
             'content-type': 'application/json;charset=UTF-8',
           },

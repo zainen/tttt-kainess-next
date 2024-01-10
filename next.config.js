@@ -1,11 +1,12 @@
 /** 
  * @type {import('next').NextConfig} 
  * */
+
 const nextConfig = {
   experimental: {
     serverActions: {
       // TODO UPDATE ORIGINS
-      allowedOrigins: ['localhost:3000', '*.my-proxy.com'],
+      allowedOrigins: ['localhost:3000', 'localhost:8080', '*.my-proxy.com'],
     },
   }
 }
