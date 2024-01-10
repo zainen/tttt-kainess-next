@@ -28,10 +28,16 @@ export const validateEmailParams = (params: EmailParams): Partial<(keyof Omit<Em
 
 export const formatEnglishHerbName = (herbNameEnglish: string) => {
   const arr = []
-  if (herbNameEnglish.includes(":")) {
-    const [first, second] = herbNameEnglish.split(": ");
-    const cleanSecond = formatSymbol(second, ",")
-    arr.push(`${first}: `, ...cleanSecond);
+  if (herbNameEnglish.includes(":") || herbNameEnglish.includes(';')) {
+    if (herbNameEnglish.includes(":")) {
+      const [first, second] = herbNameEnglish.split(":");
+      const cleanSecond = formatSymbol(second, ",")
+      arr.push(`${first}: `, ...cleanSecond);
+    } else if (herbNameEnglish.includes(';')) {
+      const [first, second] = herbNameEnglish.split(";");
+      const cleanSecond = formatSymbol(second, ",")
+      arr.push(`${first}: `, ...cleanSecond);
+    }
   } else {
     arr.push(herbNameEnglish);
   }
@@ -39,5 +45,5 @@ export const formatEnglishHerbName = (herbNameEnglish: string) => {
 }
 
 export const formatSymbol = (str: string, symbol: string): string[] => {
-  return str.includes(symbol) ? str.split(`${symbol} `) : [str]
+  return str.includes(symbol) ? str.split(symbol).map(item => item.trim()) : [str]
 }

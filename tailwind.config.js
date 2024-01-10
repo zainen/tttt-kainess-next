@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
 import 'dotenv/config';
 module.exports = {
   content: [
@@ -52,6 +53,11 @@ module.exports = {
         header: '0 1.2px 1.2px rgba(51,65,85,1)',
         'sub-header': '0 1.2px 1.2px rgba(51,65,85,0.8))'
       }
+    },
+    screens: {
+      'xxs': '400px',
+      'xs': '475px',
+      ...defaultTheme.screens,
     },
   },
   plugins: [

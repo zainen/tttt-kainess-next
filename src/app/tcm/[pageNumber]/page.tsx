@@ -34,9 +34,11 @@ export default async function Page (props: Props) {
     console.log(e)
   }
   return (
-    <div className="flex justify-center w-full bg-tttt-200">
-      <Pagination totalPages={pages.length} currentPage={Number(props.params.pageNumber)}/>
-      <HerbTable className="text-primary-400 my-4 border-primary-400 border-2"  pages={pages} herbs={herbs}/>
+    <div className="flex py-4 md:py-8 flex-col items-center w-full bg-tttt-200 min-w-fit">
+      <HerbTable className="text-primary-400 border-primary-400 border-2"  pages={pages} herbs={herbs}/>
+      <div className="w-full mt-4 md:w-4/5 flex justify-end items-center">
+        <Pagination totalPages={pages.length} currentPage={Number(props.params.pageNumber)}/>
+      </div>
     </div>
   )
 }
