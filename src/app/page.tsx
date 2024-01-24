@@ -13,9 +13,9 @@ export default function Home({searchParams}: { searchParams: SearchParams}) {
       {showModal ? <ModalPopup /> : undefined}
       <Section className="w-full h-fit flex justify-center">
       <div
-        className="relative w-full pt-10 bg-no-repeat min-h-fit h-fit text-center bg-[url('/img/waves.webp')] bg-center"
+        className="relative w-full  bg-no-repeat min-h-fit h-fit text-center bg-[url('/img/waves.webp')] bg-center"
       >
-        <div className=" w-full p-10 text-tttt-200 drop-shadow-header blur-0">
+        <div className=" w-full p-10 text-tttt-200 drop-shadow-header backdrop-blur-sm">
           <h1 className="text-center text-3xl font-bold ">The Journey Towards Health Stems from Within.</h1>
 
           <div className="flex flex-col md:flex-row w-full pt-4 md:pt-16 ">
@@ -91,8 +91,8 @@ export default function Home({searchParams}: { searchParams: SearchParams}) {
             </Card>
           </div>
           <div className=" w-full flex items-center justify-center">
-            <Link href="/kai">
-              <p className="my-4 text-primary-300 px-4 w-fit">Learn More</p>
+            <Link className='bg-accent-100 rounded-lg py-2 mb-6 mt-2' href="/kai">
+              <p className="text-primary-300 px-4 max-w-fit drop-shadow-sub-header">Learn More</p>
             </Link>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import Pagination from "@/components/ui/Pagination";
-import { formatSymbol } from "@/helperFunctions";
+import { HerbRow } from "@/components/ui/herb-table/HerbRow"
 import { GetHerbJist, HerbJist } from "@/types";
-import Link from "next/link";
 
 const getHerbs = async (page: string) => {
   const apiCall = await fetch(`${process.env.NEXT_PUBLIC_KAINESS_API}/tcm/${page}`, { 
@@ -36,9 +35,9 @@ export default async function Page (props: Props) {
       <div className="flex flex-col">
         <div className=" overflow-x-auto">
           <div className="inline-block min-w-full my-2, align-middle md:px-6 lg:px-8">
-            <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5">
-              <table className={`table-auto text-primary-400 border-primary-400 border-2 overflow-x-scroll scrollbar-none`}>
-                <thead className="border-primary-400 border-b-2">
+            <div className="overflow-scroll scrollbar-none shadow ring-1 ring-black ring-opacity-5">
+              <table className='table-auto text-primary-400 border-primary-400 border-x-[1px] overflow-x-scroll scrollbar-none'>
+                <thead className="border-primary-400 border-b-2 border-t-[1px] position-sticky">
                   <tr>
                     <th className="p-2 border-r-2">TCM Name English</th>
                     <th className="hidden md:table-cell p-2 border-r-2">TCM Name</th>
@@ -53,46 +52,7 @@ export default async function Page (props: Props) {
                 <tbody>
                   {herbs && herbs.length ? 
                     <>
-                      {herbs.map((herb, i) => {
-                        return (
-                          <tr key={`herb_row_key_${i}`} className="border-b-[1px]">
-                            <td className={`border-primary-400 border-r-[1px] py-1 px-2 ${herb.tcm_name_en ?? "bg-gray-700/15"}`}>
-                              <Link href={`/tcm/herb/${herb.id}`} className="underline">
-                                <div className=" flex flex-col">
-                                  {
-                                    formatSymbol(herb.tcm_name_en ?? '', ';').map((str, i) => {
-                                      return <p key={`english_name_${i}`}>{str}</p>
-                                    })
-                                  }
-                              </div>
-                              </Link>
-                            </td>
-                            <td className={`hidden md:table-cell border-primary-400 border-r-[1px] py-1 px-2 ${herb.tcm_name ?? "bg-gray-700/15 "}`}>{herb.tcm_name ?? ""}</td>
-                            <td className={`hidden md:table-cell border-primary-400 border-r-[1px] py-1 px-2 ${herb.herb_pinyin_name ?? "bg-gray-700/15"}`}>{herb.herb_pinyin_name ?? ""}</td>
-                            <td className={`hidden lg:table-cell border-primary-400 border-r-[1px] py-1 px-2 ${herb.herb_latin_name ?? "bg-gray-700/15"}`}>{herb.herb_latin_name ?? ""}</td>
-                            <td className={`hidden md:table-cell border-primary-400 border-r-[1px] py-1 px-2 ${herb.properties ?? "bg-gray-700/15"}`}>
-                              <div className="flex flex-col">
-                                {
-                                  formatSymbol(herb.properties ?? '', '; ').map((str, i) => {
-                                    return <p key={`property_${i}`}>{str}</p>
-                                  })
-                                }
-                              </div>
-                            </td>
-                            <td className={`border-primary-400 border-r-[1px] py-1 px-2 ${herb.meridians ?? "bg-gray-700/15"}`}>
-                              <div className="flex flex-col">
-                                {
-                                  formatSymbol(herb.meridians ?? '', '; ').map((str, i) => {
-                                    return <p key={`meridian_${i}`}>{str}</p>
-                                  })
-                                }
-                              </div>
-                            </td>
-                            <td className={`border-primary-400 border-r-[1px] py-1 px-2 ${herb.therapeutic_en_class ?? "bg-gray-700/15"}`}>{herb.therapeutic_en_class ?? ""}</td>
-                            <td className={`hidden md:table-cell py-1 px-2 ${herb.therapeutic_cn_class ?? "bg-gray-700/15"}`}>{herb.therapeutic_cn_class ?? ""}</td>
-                          </tr>
-                        )
-                      })}
+                      <HerbRow herbs={herbs}/>
                     </>
                     : 
                     <></>

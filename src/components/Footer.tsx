@@ -7,6 +7,7 @@ export const Footer = () => {
         <EmailContainer
           inputClassname="bg-primary-400"
           borderColour="border-b-tttt-200"
+          textBoxColour="bg-primary-400"
         />
         <div className="flex justify-center py-8 md:pt-0">
           {/* facebook */}

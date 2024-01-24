@@ -4,7 +4,7 @@ import { TextInput } from "@/components/ui/TextInput";
 import { FormEvent, useState } from "react";
 import { validateEmailParams } from "@/helperFunctions";
 
-export const EmailContainer = ({inputClassname, borderColour}: { inputClassname: string; borderColour: string }) => {
+export const EmailContainer = ({inputClassname, borderColour, textBoxColour}: { inputClassname: string; borderColour: string; textBoxColour: string }) => {
   const [showError, setShowError] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
 
@@ -105,12 +105,12 @@ export const EmailContainer = ({inputClassname, borderColour}: { inputClassname:
         </div>
         <form className="w-full" onSubmit={onSubmit}>
           <div className="flex flex-col md:flex-col lg:flex-row  justify-between w-full mt-4"> 
-            <TextInput required name='firstName' className={`lg:mr-2 ${inputClassname}`} borderColour={borderColour} label="First Name"/> 
-            <TextInput  name='lastName' className={`${inputClassname}`} borderColour={borderColour} label="Last Name"/> 
+            <TextInput required name='firstName' className={`lg:mr-2 ${inputClassname} ${textBoxColour}`} borderColour={borderColour} label="First Name"/> 
+            <TextInput  name='lastName' className={`${inputClassname} ${textBoxColour}`} borderColour={borderColour} label="Last Name"/> 
           </div>
           <div className="flex flex-col md:flex-col lg:flex-row  justify-between w-full mt-4"> 
-            <TextInput required name='sender' className={`lg:mr-2 ${inputClassname}`} borderColour={borderColour} label="Email"/> 
-            <TextInput name='phoneNumber' className={`${inputClassname}`} borderColour={borderColour} label="Phone Number"/> 
+            <TextInput required name='sender' className={`lg:mr-2 ${inputClassname} ${textBoxColour}`} borderColour={borderColour} label="Email"/> 
+            <TextInput name='phoneNumber' className={`${inputClassname} ${textBoxColour}`} borderColour={borderColour} label="Phone Number"/> 
           </div>
           <div className="w-full mt-4"> 
             <div className="flex flex-col w-full">
@@ -120,7 +120,7 @@ export const EmailContainer = ({inputClassname, borderColour}: { inputClassname:
                 label="Message"
                 borderColour={borderColour}
                 textArea
-                className="border-b h-40 focus:outline-none bg-primary-400 border-b-tttt-200"
+                className={`border-b h-40 focus:outline-none ${textBoxColour} border-b-tttt-200`}
               />
             </div> 
           </div>

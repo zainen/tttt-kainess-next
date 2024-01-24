@@ -6,13 +6,13 @@ import { useRouter } from "next/navigation";
 export const ModalPopup = () => {
   const router = useRouter();
   return (
-    <div className="fixed z-10 inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center">
+    <div className="fixed z-10 inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center  ">
       <Card className="z-20 border-none bg-primary-200 max-w-xl w-full  sm:rounded-xl">
         <div className="flex justify-end" >
 
           <button className="hover:text-tttt-200 text-right" onClick={router.back}>X</button>
         </div>
-        <EmailContainer borderColour="" inputClassname="" />
+        <EmailContainer borderColour="" inputClassname="" textBoxColour="bg-tttt-200" />
       </Card>
     </div>
   )
