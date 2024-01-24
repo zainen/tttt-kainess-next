@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 export default function Pagination({ totalPages, currentPage }: { totalPages: number; currentPage: number; }) {
   const router = useRouter();
   if (currentPage < 1 || currentPage > totalPages) {
-    router.replace(`${process.env.NEXT_PUBLIC_KAINESS_API}/tcm/1`);
+    router.replace(`/tcm/1`);
   }
 
   const minusFive = currentPage - 5

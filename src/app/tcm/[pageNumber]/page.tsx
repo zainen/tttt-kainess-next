@@ -25,7 +25,7 @@ export default async function Page (props: Props) {
   let herbs: HerbJist[] = []
   let pages: number[] = Array.from(Array(328).keys())
   try {
-    const data = await getHerbs(`${pages[Number(props.params.pageNumber) - 1]}`)
+    const data = await getHerbs(`${pages[Number(props.params.pageNumber)]}`)
     herbs = data.herbs;
     pages = data.pages;
   } catch (e) {
