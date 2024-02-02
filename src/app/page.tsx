@@ -20,16 +20,16 @@ export default function Home({searchParams}: { searchParams: SearchParams}) {
 
           <div className="flex flex-col md:flex-row w-full pt-4 md:pt-16 ">
             <div className="flex-1 text-center p-4 m-2 flex flex-col justify-between">
-              <p className="italic drop-shadow-sub-header font-semibold">“The natural healing force within each of us is the greatest force in getting well.”</p>
-              <p className="md:pt-4 text-lg text-right font-semibold">- Hippocrates</p>
+              <p className="italic drop-shadow-sub-header font-bold">“The natural healing force within each of us is the greatest force in getting well.”</p>
+              <p className="md:pt-4 text-lg text-right font-bold">- Hippocrates</p>
             </div>
             <div className="flex-1 text-center p-4 m-2 flex flex-col justify-between">
-              <p className="italic drop-shadow-sub-header font-semibold">“You must find the place inside of yourself where nothing is impossible”</p>
-              <p className="md:pt-4 text-lg text-right font-semibold">- Dr Deepak Chopra, MD</p>
+              <p className="italic drop-shadow-sub-header font-bold">“You must find the place inside of yourself where nothing is impossible”</p>
+              <p className="md:pt-4 text-lg text-right font-bold">- Dr Deepak Chopra, MD</p>
             </div>
             <div className="flex-1 text-center p-4 m-2 flex flex-col justify-between">
-              <p className="italic drop-shadow-sub-header font-semibold">“Health is the greatest possession. Contentment is the greatest treasure. Confidence is the greatest friend.”</p>
-              <p className="md:pt-4 text-lg text-right font-semibold">- Lao Tzu</p>
+              <p className="italic drop-shadow-sub-header font-bold">“Health is the greatest possession. Contentment is the greatest treasure. Confidence is the greatest friend.”</p>
+              <p className="md:pt-4 text-lg text-right font-bold">- Lao Tzu</p>
             </div>
           </div>
 
@@ -44,9 +44,9 @@ export default function Home({searchParams}: { searchParams: SearchParams}) {
             <div className="pt-4 flex flex-col items-center ">
 
               <p className="py-2 text-primary-300 text-center font-semibold">Online Health Coaching with Tysia Suzuki</p>
-              <Link className='bg-primary-300 rounded-lg mt-4' href={'/?modal=true'}>
+              {/* <Link className='bg-primary-300 rounded-lg mt-4' href={'/?modal=true'}>
                 <p  className='text-tttt-200 px-4 max-w-fit drop-shadow-sub-header'>Discover</p>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

@@ -47,3 +47,15 @@ export const formatEnglishHerbName = (herbNameEnglish: string) => {
 export const formatSymbol = (str: string, symbol: string): string[] => {
   return str.includes(symbol) ? str.split(symbol).map(item => item.trim()) : [str]
 }
+
+export const appendURLParams = (base: string, key: string, params?: string | string[]): string => {
+  if (params) {
+    base += '?';
+    if (Array.isArray(params)) {
+      params.forEach(param => base = `${key}=${param}`);
+    } else {
+      base += `${key}=${params}`
+    }
+  }
+  return base;
+}

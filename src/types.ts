@@ -14,26 +14,26 @@ export type SearchParams = Record<string, string> | null | undefined
 export interface HerbFull {
   id: number,
   tcmbank_id: string,
-  level1_name_en?: string,
-  level2_name?: string,
-  tcm_name?: string,
-  tcm_name_en?: string,
-  herb_pinyin_name?: string,
-  herb_latin_name?: string,
-  properties?: string,
-  meridians?: string,
-  usepart?: string,
-  function?: string,
-  indication?: string,
-  toxicity?: string,
-  clinical_manifestations?: string,
-  therapeutic_en_class?: string,
-  therapeutic_cn_class?: string,
-  tcmid_id?: string,
-  tcm_id_id?: number
-  symmap_id?: number
-  tcmsp_id?: number
-  herb_id?: string,
+  level1_name_en: string | null,
+  level2_name: string | null,
+  tcm_name: string | null,
+  tcm_name_en: string | null,
+  herb_pinyin_name: string | null,  
+  herb_latin_name: string | null,
+  properties: string | null,
+  meridians: string | null,
+  usepart: string | null,
+  function: string | null,
+  indication: string | null,
+  toxicity: string | null,
+  clinical_manifestations: string | null,
+  therapeutic_en_class: string | null,
+  therapeutic_cn_class: string | null,
+  tcmid_id: string | null,
+  tcm_id_id: number | null
+  symmap_id: number | null
+  tcmsp_id: number | null
+  herb_id: string | null,
 };
 
 export interface HerbJist {
