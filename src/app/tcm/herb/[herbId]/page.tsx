@@ -35,11 +35,20 @@ export default async function Page (props: Props) {
           <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4 w-full">
             <div className="flex-1 flex flex-col items-center">
               <p className="text-primary-400 font-bold py-4 md:py-8 w-fit">Chinese:</p>
-              <p>{herb.tcm_name ?? "unknown"}</p>
+              {/* TODO NEW FUNCTION FOR NON ENGLISH FORMAT NAME */}
+              {herb.tcm_name ? formatEnglishHerbName(herb.tcm_name ?? "").map((str, i) => {
+                    return <p className="w-fit text-center" key={`herb_en_part_${i}`}>{str}</p>
+                  }) :
+                  <p>unknown</p>
+                }
             </div>
             <div className="flex-1 flex flex-col items-center">
               <p className="text-primary-400 font-bold py-4 md:py-8 w-fit">Pinyin:</p>
-              <p>{herb.herb_pinyin_name ?? "unknown"}</p>
+              {herb.herb_pinyin_name ? formatEnglishHerbName(herb.herb_pinyin_name ?? "").map((str, i) => {
+                    return <p className="w-fit text-center" key={`herb_en_part_${i}`}>{str}</p>
+                  }) :
+                  <p>unknown</p>
+                }
             </div>
             <div className="flex-1 flex flex-col items-center">
               <p className="font-bold text-primary-400 py-4 md:py-8 w-fit">English:</p>

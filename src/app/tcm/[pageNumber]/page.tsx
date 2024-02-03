@@ -15,8 +15,8 @@ const getHerbs = async (page: string) => {
   return data
 } 
 
-const getHerbsFilter = async (page: string, meridianFilter: string) => {
-  const apiCall = await fetch(`${process.env.NEXT_PUBLIC_KAINESS_API}/tcm/${page}/meridian-filter?meridians=${meridianFilter}`, { 
+const getHerbsFilter = async (page: string, meridianFilter: string[]) => {
+  const apiCall = await fetch(`${process.env.NEXT_PUBLIC_KAINESS_API}/tcm/${page}/meridian-filter?meridians=${meridianFilter.join(',')}`, { 
     method: "GET", 
     mode: "cors",
     headers: {
@@ -50,17 +50,18 @@ type Props = {
 
 export default async function Page (props: Props) {
   let herbs: HerbJist[] = []
-  let pages: number[] = Array.from(Array(328).keys())
+  // default 20 pages to handle preloading before async finishes and trying to access outof bounds of array in Pagination
+  let pages: number[] = Array.from(Array(20).keys())
   let data: GetHerbJist;
   let meridianOptions: string[] = [];
-  let meridians: string = '';
+  let meridians: string[] = [];
   const checkMeridianType = props.searchParams.meridians;
   try {
     if (checkMeridianType) {
       if (Array.isArray(checkMeridianType)) {
-        meridians = checkMeridianType.join(',');
-      } else {
         meridians = checkMeridianType;
+      } else {
+        meridians = [checkMeridianType];
       }
       data = await getHerbsFilter(`${pages[Number(props.params.pageNumber)]}`, meridians)
     } else {
@@ -76,9 +77,9 @@ export default async function Page (props: Props) {
   }
   
   return (
-    <div className="flex py-4 md:py-16 flex-col items-center w-full bg-tttt-200 min-w-fit">
-      <div className="w-full flex justify-end pr-8 md:pr-16 text-primary-300">
-        <SearchMeridians meridiansOptions={meridianOptions}/>
+    <div className="flex py-4 md:py-10 flex-col items-center w-full bg-tttt-200 min-w-fit">
+      <div className="w-full flex justify-end pr-8 md:pr-16 mb-4 md:mb-8 text-primary-300">
+        <SearchMeridians meridiansOptions={meridianOptions} meridianParams={meridians}/>
       </div>
       <div className="flex flex-col">
         <div className=" overflow-x-auto">

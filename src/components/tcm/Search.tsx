@@ -1,31 +1,71 @@
 'use client';
 
+import { useEffect, useState } from "react";
+import { Dropdown } from "../ui/Dropdown";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+
 type Props = {
   meridiansOptions: string[]
+  meridianParams: string[]
 }
 
-export const SearchMeridians = ({meridiansOptions}: Props) => {
+export const SearchMeridians = ({meridiansOptions, meridianParams}: Props) => {
+  const [meridians, setMeridians] = useState<Record<string, boolean>>({})
+  const router = useRouter();
 
+  const makeParams = (): string => {
+    const meridianArr = Object.entries(meridians).reduce<string[]>((acc, [s, v]) => {
+      if (v) {
+        acc.push(`meridians=${s}`)
+      }
+      return acc
+    }, [])
+    return meridianArr.join("&")
+  }
+
+  useEffect(() => {
+    const newMeridians = meridiansOptions.reduce<Record<string,boolean>>((acc, merid) => {
+      acc[merid] = meridianParams.includes(merid);
+      return acc;
+    }, {});
+  
+    setMeridians(newMeridians);
+  }, [meridianParams, meridiansOptions]);
   return (
-    <div>
-      {meridiansOptions.map((meridian, i) => {
+    <Dropdown title="Filter">
+
+      {Object.keys(meridians).map((meridian) => {
+        console.log(meridians)
         return (
           <div key={meridian}>
             <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
               <input
-                className="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-                type="radio"
-                name="flexRadioNoLabel"
-                id={`meridian_label_${i}`} />
+                className="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 accent-primary-300 text-tttt-200 rounded-full border-2 border-solid border-neutral-300"
+                type="checkbox"
+                checked={meridians[meridian]}
+                id={`meridian_input_${meridian}`} 
+                value={meridian}
+                onChange={(e) => setMeridians(prev => {
+                  return {...prev, [meridian]: !prev[meridian]}
+                })}
+                />
                 <label
                   className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
-                  htmlFor={`meridian_label_${i}`}>
+                  htmlFor={`meridian_label_${meridian}`}>
                   {meridian}
                 </label>
             </div>
           </div>
         )
       })}
-    </div>
+      <div className="w-full flex justify-end">
+        <button className="px-4 py-2 bg-primary-200 text-accent-100 rounded-md font-bold mb-2">
+          <Link href={`/tcm/1?${makeParams()}`}>
+            Go
+          </Link>
+          </button>
+      </div>
+    </Dropdown>
   )
 }
