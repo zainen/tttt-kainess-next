@@ -1,16 +1,13 @@
 import { Bookings } from '@/components/Bookings';
 import { Card } from '@/components/ui/Card';
-import { ModalPopup } from '@/components/ui/Modal';
 import { Section } from '@/components/ui/Section';
 import { SearchParams } from '@/types';
 import Image from 'next/image'
 import Link from 'next/link';
 
 export default function Home({searchParams}: { searchParams: SearchParams}) {
-  const showModal = searchParams?.modal
   return (
     <>
-      {showModal ? <ModalPopup /> : undefined}
       <Section className="w-full h-fit flex justify-center">
       <div
         className="relative w-full  bg-no-repeat min-h-fit h-fit text-center bg-[url('/img/waves.webp')] bg-center"

@@ -1,18 +1,17 @@
-'use client'
 import { Card } from "@/components/ui/Card";
-import { EmailContainer } from "./EmailContainer";
-import { useRouter } from "next/navigation";
 
-export const ModalPopup = () => {
-  const router = useRouter();
+type Props = React.PropsWithChildren<{
+  close: () => void
+}>
+
+export const Modal = (props: Props) => {
   return (
-    <div className="fixed z-50 inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center  ">
-      <Card className="z-20 border-none bg-primary-200 max-w-xl w-full  sm:rounded-xl">
+    <div className="fixed w-full h-full z-20 inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center" onClick={props.close}>
+      <Card className="fixed z-40 border-none bg-primary-200 max-w-xl w-full  sm:rounded-xl">
         <div className="flex justify-end" >
-
-          <button className="hover:text-tttt-200 text-right" onClick={router.back}>X</button>
+          <button className="hover:text-tttt-200 text-right" onClick={props.close}>X</button>
         </div>
-        <EmailContainer borderColour="" inputClassname="" textBoxColour="bg-tttt-200" />
+        {props.children}
       </Card>
     </div>
   )

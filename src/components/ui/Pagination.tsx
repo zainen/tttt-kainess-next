@@ -21,8 +21,9 @@ export default function Pagination({ totalPages, currentPage, meridians }: { tot
   }
   const dropPageOptionsIfIncludes = [0,  1 ,  pages.length - 1,  pages.length - 2];
 
-  const [includesFirst, isNotNext] = [pages.includes(1), !pages.includes(2)];
-  const [includesLast, isNotLast] = [pages.includes(totalPages), !pages.includes(totalPages-1)];
+  // TODO actually make this make sense >.>
+  const [includesFirst, isNotNext] = [pages.includes(1), totalPages > 8 && currentPage >  7];
+  const [includesLast, isNotLast] = [pages.includes(totalPages), totalPages > 10 && currentPage < totalPages - 6];
 
 
   return (

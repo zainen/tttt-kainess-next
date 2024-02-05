@@ -1,16 +1,12 @@
 
 import Link from "next/link";
 import Image from 'next/image';
-import { ModalPopup } from "./ui/Modal";
-import { SearchParams } from "@/types";
 
 import kainessIcon from '../../public/img/kainess.svg'
 
-export const Header = ({searchParams}: {searchParams: SearchParams}) => {
-  const showModal = searchParams?.modal
+export const Header = () => {
   return (
     <>
-      {showModal ? <ModalPopup /> : undefined}
       <div className="sticky top-0 z-10 h-fit bg-primary-400">
         <div className="w-full h-fit flex justify-center items-center bg-primary-400 text-tttt-200">
           <Link className="pl-4 py-4 md:pt-8 md:pb-4 text-3xl flex items-center" href='/'>

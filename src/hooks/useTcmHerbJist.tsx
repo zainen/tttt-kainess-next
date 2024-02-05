@@ -21,7 +21,6 @@ const useTcmHerbJist = (page: number = 0) => {
         }
       )
     const herbJson = await response.json() as GetHerbJist;
-    console.log(herbJson)
     setHerbList(herbJson.herbs)
     setHerbIndexes(herbIndexes)
     } catch (e) {

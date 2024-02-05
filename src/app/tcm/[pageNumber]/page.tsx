@@ -51,7 +51,7 @@ type Props = {
 export default async function Page (props: Props) {
   let herbs: HerbJist[] = []
   // default 20 pages to handle preloading before async finishes and trying to access outof bounds of array in Pagination
-  let pages: number[] = Array.from(Array(20).keys())
+  let pages: number = 20;
   let data: GetHerbJist;
   let meridianOptions: string[] = [];
   let meridians: string[] = [];
@@ -63,15 +63,13 @@ export default async function Page (props: Props) {
       } else {
         meridians = [checkMeridianType];
       }
-      data = await getHerbsFilter(`${pages[Number(props.params.pageNumber)]}`, meridians)
+      data = await getHerbsFilter(props.params.pageNumber, meridians)
     } else {
-
-      data = await getHerbs(`${pages[Number(props.params.pageNumber)]}`)
+      data = await getHerbs(props.params.pageNumber)
     }
     meridianOptions = await getMeridianOptions();
-    
     herbs = data.herbs;
-    pages = data.pages;
+    pages = data.pages.length;
   } catch (e) {
     console.log("FAILED WITH ", e)
   }
@@ -114,7 +112,7 @@ export default async function Page (props: Props) {
       </div>
       <div className="w-full mt-4 md:pr-16 flex justify-center md:justify-end items-center">
         {/* TODO possibly change pages to next and prev button with a go to page input */}
-        <Pagination totalPages={pages.length} currentPage={Number(props.params.pageNumber)} meridians={checkMeridianType} />
+        <Pagination totalPages={pages} currentPage={Number(props.params.pageNumber)} meridians={checkMeridianType} />
       </div>
     </div>
   )
