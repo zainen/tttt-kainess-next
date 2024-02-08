@@ -55,7 +55,7 @@ export default function Home({searchParams}: { searchParams: SearchParams}) {
             <h2 className="font-semibold text-xl pt-4 text-tttt-300 text-center drop-shadow-sub-header">Health and Wellness Coach | Nutrition Expert</h2>
             <div className="pt-4 flex flex-col items-center ">
               <Link className='bg-accent-100 rounded-lg mt-4' href="/about">
-                <p  className='text-primary-300 px-4 max-w-fit drop-shadow-sub-header'>Read More</p>
+                <p  className='text-primary-300 px-4 max-w-fit drop-shadow-sub-header font-semibold'>Read More</p>
               </Link>
             </div>
           </div>
@@ -89,7 +89,7 @@ export default function Home({searchParams}: { searchParams: SearchParams}) {
           </div>
           <div className=" w-full flex items-center justify-center">
             <Link className='bg-accent-100 rounded-lg py-2 mb-6 mt-2' href="/kai">
-              <p className="text-primary-300 px-4 max-w-fit drop-shadow-sub-header">Learn More</p>
+              <p className="text-primary-300 px-4 max-w-fit drop-shadow-sub-header font-semibold">Learn More</p>
             </Link>
           </div>
         </div>

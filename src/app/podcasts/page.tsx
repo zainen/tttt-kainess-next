@@ -1,4 +1,5 @@
 import { PodcastSpotify, PodcastYoutube } from "@/components/ui/IframeHolder";
+import { Spinner } from "@/components/ui/Spinner";
 
 
 const podcasts = () => {

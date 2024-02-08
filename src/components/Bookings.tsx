@@ -22,7 +22,7 @@ export const Bookings = () => {
             <div className="h-fit">
               <p>1 hr</p>
               <p className="pb-4">$60</p>
-              <Button className="bg-accent-100 rounded-lg py-2 px-4" onClick={handleClick} type="button">
+              <Button className="bg-accent-100 rounded-lg py-2 px-4 text-primary-300" onClick={handleClick} type="button">
                 Book Now
               </Button>
             </div>
@@ -37,7 +37,7 @@ export const Bookings = () => {
             <div className="h-fit">
               <p>1 hr</p>
               <p className="pb-4">Inquire for pricing</p>
-              <Button className="bg-accent-100 rounded-lg py-2 px-4" onClick={handleClick} type="button">
+              <Button className="bg-accent-100 rounded-lg py-2 px-4 text-primary-300" onClick={handleClick} type="button">
                 Book Now
               </Button>
             </div>

@@ -17,7 +17,7 @@ export const Button = (
         props.className
       }`}
     >
-      <button className="w-full h-full py-1 font-bold" type={props.type} onClick={props.onClick ?? (() => {})}>
+      <button className="w-full h-full py-1 font-semibold" type={props.type} onClick={props.onClick ?? (() => {})}>
         {props.children}
       </button>
     </div>
